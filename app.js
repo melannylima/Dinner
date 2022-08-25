@@ -5,7 +5,7 @@ const app = express()
 require('dotenv').config()
 
 const PORT = process.env.PORT||4000
-const mongodbURI = process.env.MONGODBURI
+const mongodbURI = process.env.MONGODB_URI
 
 const SESSION_SECRET = process.env.SESSION_SECRET
 // console.log('Here is the session secret');
