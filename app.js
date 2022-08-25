@@ -8,8 +8,8 @@ const PORT = process.env.PORT||4000
 const mongodbURI = process.env.MONGODBURI
 
 const SESSION_SECRET = process.env.SESSION_SECRET
-console.log('Here is the session secret');
-console.log(SESSION_SECRET);
+// console.log('Here is the session secret');
+// console.log(SESSION_SECRET);
 
 // MONGOOSE
 const mongoose = require('mongoose')
