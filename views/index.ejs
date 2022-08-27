@@ -7,6 +7,14 @@
   <body>
     <h1>What's in my Pantry?</h1>
 
+    <ul>
+      <% for (let i = 0; i < pantry.length; i++) { %>
+        <li>
+          <a href="/wfd/<%= pantry[i].id %>"> <%= pantry[i].name %> </a>
+        </li>
+      <% } %>
+    </ul>
+
     <a href="/wfd/newp"><button>Add to my Pantry</button></a>
   </body>
 </html>

@@ -9,6 +9,6 @@ const pantrySchema = new mongoose.Schema({
 })
 
 // MODEL
-const Pantry = mongoose.model('Pantry', pantrySchema)
+const Newp = mongoose.model('Newp', pantrySchema)
 
-module.exports = Pantry
+module.exports = Newp

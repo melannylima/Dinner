@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const Newp = require('./models/newp.js')
+const methodOverride = require('method-override')
 
 // .env
 require('dotenv').config()
@@ -24,6 +26,7 @@ mongoose.connection.once('open', () => {
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
 
 // DEFAULT
 app.get('/', (req, res) => {
@@ -33,7 +36,8 @@ app.get('/', (req, res) => {
 // INDEX
 app.get('/wfd', (req, res) => {
   console.log('index');
-  res.render('index.ejs')
+  let pantryItems = Newp.find({})
+  res.render('index.ejs', {pantry: pantryItems})
 })
 
 // NEW
@@ -42,9 +46,16 @@ app.get('/wfd/newp', (req, res) => {
   res.render('new.ejs')
 })
 
+// CREATE
 app.post('/wfd', (req, res) => {
   console.log('create');
-
+  Newp.create(req.body, (err, newItem) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/wfd')
+    }
+  })
 })
 
 app.listen(PORT, () => {
