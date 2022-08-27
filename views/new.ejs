@@ -7,5 +7,27 @@
   <body>
     <h1>New Pantry Item</h1>
 
+    <br>
+
+    <form action="/wfd" method="POST">
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" placeholder="food item">
+      </div>
+      <div>
+        <label for="img">Image:</label>
+        <input id="img" type="text" name="img" placeholder="image link">
+      </div>
+      <div>
+        <label for="qty">Quantity:</label>
+        <input id="qty" type="text" name="qty" placeholder="how many?">
+      </div>
+      <div>
+        <label for="tag">Attributes:</label>
+        <input id="tag" type="text" name="tag" placeholder="characteristics">
+      </div>
+      <input type="submit" value="Add!">
+    </form>
+
   </body>
 </html>
