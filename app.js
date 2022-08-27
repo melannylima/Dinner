@@ -34,10 +34,10 @@ app.get('/', (req, res) => {
 })
 
 // INDEX
-app.get('/wfd', (req, res) => {
+app.get('/wfd', async (req, res) => {
   console.log('index');
-  let pantryItems = Newp.find({})
-  res.render('index.ejs', {pantry: pantryItems})
+  let pantry = await Newp.find({})
+  res.render('index.ejs', {pantry})
 })
 
 // NEW
@@ -56,6 +56,12 @@ app.post('/wfd', (req, res) => {
       res.redirect('/wfd')
     }
   })
+})
+
+// SHOW
+app.get('/wfd/:id', (req, res) => {
+  let pantry = await Newp.findById(req.params.id)
+  res.render('show.ejs', {pantry})
 })
 
 app.listen(PORT, () => {
