@@ -68,11 +68,7 @@ app.get('/wfd/:id', async (req, res) => {
 // DESTROY
 app.delete('/wfd/:id', (req, res) => {
   console.log('delete');
-  console.log(req.params.id);
-
-
   Newp.findByIdAndDelete(req.params.id, (err, data) => {
-    console.log(req.params.id);
     if (err) {
       console.log(err);
       res.send(err)
