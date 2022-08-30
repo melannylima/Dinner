@@ -28,74 +28,15 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
+// CONTROLLERS
+const pantryController = require('./controllers/pantryController.js')
+app.use('/wfd', pantryController)
+
 // DEFAULT
 app.get('/', (req, res) => {
   res.send('default view')
 })
 
-// INDEX
-app.get('/wfd', async (req, res) => {
-  console.log('index');
-  let pantry = await Newp.find({})
-  res.render('index.ejs', {pantry})
-})
-
-// NEW
-app.get('/wfd/newp', (req, res) => {
-  console.log('new pantry item');
-  res.render('new.ejs')
-})
-
-// CREATE
-app.post('/wfd', (req, res) => {
-  console.log('create');
-  Newp.create(req.body, (err, newItem) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect('/wfd')
-    }
-  })
-})
-
-// SHOW
-app.get('/wfd/:id', async (req, res) => {
-  console.log('show');
-  let pantry = await Newp.findById(req.params.id)
-  res.render('show.ejs', {pantry})
-})
-
-// DESTROY
-app.delete('/wfd/:id', (req, res) => {
-  console.log('delete');
-  Newp.findByIdAndDelete(req.params.id, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.send(err)
-    } else {
-      res.redirect('/wfd')
-    }
-  })
-})
-
-// EDIT
-app.get('/wfd/:id/edit', async (req, res) => {
-  let pantry = await Newp.findById(req.params.id)
-  Newp.findById(req.params.id, (err, data) => {
-    if (err) {
-      res.send(err)
-    } else {
-      res.render('edit.ejs', {pantry})
-    }
-  })
-})
-
-// UPDATE
-app.put('/wfd/:id', (req, res) => {
-  Newp.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
-    res.redirect('/wfd')
-  })
-})
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

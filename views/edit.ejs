@@ -9,7 +9,7 @@
 
     <br>
 
-    <form action="/wfd" method="POST">
+    <form action="/wfd/<%=pantry.id%>/?_method=PUT" method="POST">
       <div>
         <label for="name">Name:</label>
         <input id="name" type="text" name="name" value="<%=pantry.name%>">
