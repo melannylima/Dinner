@@ -59,9 +59,27 @@ app.post('/wfd', (req, res) => {
 })
 
 // SHOW
-app.get('/wfd/:id', (req, res) => {
+app.get('/wfd/:id', async (req, res) => {
+  console.log('show');
   let pantry = await Newp.findById(req.params.id)
   res.render('show.ejs', {pantry})
+})
+
+// DESTROY
+app.delete('/wfd/:id', (req, res) => {
+  console.log('delete');
+  console.log(req.params.id);
+
+
+  Newp.findByIdAndDelete(req.params.id, (err, data) => {
+    console.log(req.params.id);
+    if (err) {
+      console.log(err);
+      res.send(err)
+    } else {
+      res.redirect('/wfd')
+    }
+  })
 })
 
 app.listen(PORT, () => {
