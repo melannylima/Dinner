@@ -78,6 +78,25 @@ app.delete('/wfd/:id', (req, res) => {
   })
 })
 
+// EDIT
+app.get('/wfd/:id/edit', async (req, res) => {
+  let pantry = await Newp.findById(req.params.id)
+  Newp.findById(req.params.id, (err, data) => {
+    if (err) {
+      res.send(err)
+    } else {
+      res.render('edit.ejs', {pantry})
+    }
+  })
+})
+
+// UPDATE
+app.put('/wfd/:id', (req, res) => {
+  Newp.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
+    res.redirect('/wfd')
+  })
+})
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 })
