@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Recipe</title>
+  </head>
+  <body>
+    <h1>Add to Your Recipe Collection!</h1>
+
+    <br>
+
+    <form action="/dc/<%= recipe.id %>?_method=PUT" method="POST">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= recipe.name %>">
+      </div>
+      <div>
+        <label for="img">Image:</label>
+        <input type="text" name="img" id="img" value="<%= recipe.img %>">
+      </div>
+      <div>
+        <label for="cookTime">Cooking Time:</label>
+        <input type="text" name="cookTime" id="cookTime" value="<%= recipe.cookTime %>">
+      </div>
+      <div>
+        <label for="directions">Directions:</label>
+        <input type="text" name="directions" id="directions" value="<%= recipe.directions %>">
+      </div>
+      <div>
+        <label for="ingredients">Ingredients:</label>
+        <input type="text" name="ingredients" id="ingredients" value="<%= recipe.ingredients %>">
+      </div>
+      <input type="submit" value="Update!">
+    </form>
+
+    <a href="/dc"><button>BACK</button></a>
+
+  </body>
+</html>

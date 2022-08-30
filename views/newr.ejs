@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Recipe</title>
+  </head>
+  <body>
+    <h1>Add to Your Recipe Collection!</h1>
+
+    <br>
+
+    <form action="/dc" method="POST">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="What are you making?">
+      </div>
+      <div>
+        <label for="img">Image:</label>
+        <input type="text" name="img" id="img" placeholder="image link">
+      </div>
+      <div>
+        <label for="cookTime">Cooking Time:</label>
+        <input type="text" name="cookTime" id="cookTime" placeholder="cooking time (min)">
+      </div>
+      <div>
+        <label for="directions">Directions:</label>
+        <input type="text" name="directions" id="directions" placeholder="type/paste directions here">
+      </div>
+      <div>
+        <label for="ingredients">Ingredients:</label>
+        <input type="text" name="ingredients" id="ingredients" placeholder="separate with ,">
+      </div>
+      <input type="submit" value="Add!">
+    </form>
+
+    <a href="/dc"><button>BACK</button></a>
+
+  </body>
+</html>

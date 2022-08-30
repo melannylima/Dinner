@@ -11,10 +11,12 @@
       <% for (let i = 0; i < pantry.length; i++) { %>
         <li>
           <a href="/wfd/<%= pantry[i].id %>"> <%= pantry[i].name %> </a>
+
+          <form action='/wfd/<%= pantry[i].id %>?_method=DELETE' method='POST'>
+            <input type="submit" value="DELETE">
+          </form>
         </li>
-        <form action='/wfd/<%= pantry[i].id %>?_method=DELETE' method='POST'>
-          <input type="submit" value="DELETE">
-        </form>
+        
       <% } %>
     </ul>
 

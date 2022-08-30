@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Recipes</title>
+  </head>
+  <body>
+    <h1>Recipe Book</h1>
+
+    <ul>
+      <% for (let i = 0; i < recipe.length; i++) { %>
+        <li>
+          <a href="/dc/<%= recipe[i].id %>"> <%= recipe[i].name %> </a>
+
+          <form action='/dc/<%= recipe[i].id %>?_method=DELETE' method='POST'>
+            <input type="submit" value="DELETE">
+          </form>
+        </li>
+        
+      <% } %>
+    </ul>
+
+    <a href="/dc/nr"><button>Add to Recipe Collection</button></a>
+
+  </body>
+</html>
