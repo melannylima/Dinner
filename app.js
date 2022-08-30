@@ -33,74 +33,13 @@ app.use(methodOverride('_method'))
 const pantryController = require('./controllers/pantryController.js')
 app.use('/wfd', pantryController)
 
+const recipeController = require('./controllers/recipeController.js')
+app.use('/dc', recipeController)
+
 // DEFAULT
 app.get('/', (req, res) => {
-  res.send('default view')
+  res.render('home.ejs')
 })
-
-// RECIPE INDEX
-app.get('/dc', async (req, res) => {
-  console.log('recipe index');
-  let recipe = await Recipe.find({})
-  res.render('indexr.ejs', {recipe})
-})
-
-// NEW RECIPE
-app.get('/dc/nr', (req, res) => {
-  console.log('new recipe');
-  res.render('newr.ejs')
-})
-
-// CREATE RECIPE
-app.post('/dc', (req, res) => {
-  console.log('creates recipe');
-  Recipe.create(req.body, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else (
-      res.redirect('dc')
-    )
-  })
-})
-
-// SHOW RECIPE
-app.get('/dc/:id', async (req, res) => {
-  console.log('show recipe');
-  let recipe = await Recipe.findById(req.params.id)
-  res.render('showr.ejs', {recipe})
-})
-
-// DESTROY RECIPE
-app.delete('/dc/:id', (req, res) => {
-  console.log('delete recipe');
-  Recipe.findByIdAndDelete(req.params.id, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect('/dc')
-    }
-  })
-})
-
-// UPDATE RECIPE
-app.put('/dc/:id', (req, res) => {
-  Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
-    res.redirect('/dc')
-  })
-})
-
-// EDIT RECIPE
-app.get('/dc/:id/edit', async (req, res) => {
-  let recipe = await Recipe.findById(req.params.id)
-  Recipe.findById(req.params.id, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render('editr.ejs', {recipe})
-    }
-  })
-})
-
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
