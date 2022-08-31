@@ -1,0 +1,79 @@
+body {
+  background-color: rgba(135,118,102, .45);
+  display: flex;
+  flex-direction: column;
+}
+
+@font-face {
+  font-family: Inknut;
+  src: url(../fonts/InknutAntiqua-Black.ttf);
+}
+
+@font-face {
+  font-family: Merriweather;
+  src: url(../fonts/Merriweather-Light.ttf);
+}
+
+@font-face {
+  font-family: HindSiliguri;
+  src: url(../fonts/HindSiliguri-Regular.ttf);
+}
+
+#slogan {
+  text-align: center;
+  background-color: rgba(249,219,109, .7);
+  width: 100%;
+  height: 30px;
+  color: #464D77;
+  font-family: HindSiliguri;
+}
+
+h1 {
+  text-align: center;
+  color: #36827F;
+  font-family: Inknut, sans-serif;
+}
+
+#hide {
+  opacity: 0
+}
+
+nav {
+  justify-content: space-around;
+  width: 100%;
+  background-color: #F4EDED;
+  font-family: HindSiliguri sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #464D77;
+}
+
+img {
+  width: 40vw;
+  margin-left: 10vw;
+  margin-top: 5vw;
+}
+
+#pair {
+  display: flex;
+  flex-direction: row;
+}
+
+#text-body {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7vw;
+  margin-left: 5vw;
+  width: 30vw;
+}
+
+h3 {
+  font-family: Merriweather sans-serif;
+}
+
+#text {
+  margin-top: 2vw;
+  font-family: HindSiliguri sans-serif;
+}
